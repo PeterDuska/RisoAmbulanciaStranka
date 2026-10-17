@@ -16,7 +16,7 @@ Route::post('/kontakt', function (Request $request) {
     ]);
 
     if (! config('sonopro.contact_to') || in_array(config('mail.default'), ['log', 'array'])) {
-        return back()->withInput()->with('contact_error', 'Odosielanie správ zatiaľ nie je dostupné. Skúste to, prosím, neskôr.')->withFragment('kontakt');
+        return back()->withInput()->with('contact_error', __('Odosielanie správ zatiaľ nie je dostupné. Skúste to, prosím, neskôr.'))->withFragment('kontakt');
     }
 
     try {
@@ -25,8 +25,8 @@ Route::post('/kontakt', function (Request $request) {
         });
     } catch (\Throwable $exception) {
         report($exception);
-        return back()->withInput()->with('contact_error', 'Správu sa nepodarilo odoslať. Skúste to, prosím, neskôr.')->withFragment('kontakt');
+        return back()->withInput()->with('contact_error', __('Správu sa nepodarilo odoslať. Skúste to, prosím, neskôr.'))->withFragment('kontakt');
     }
 
-    return back()->with('contact_success', 'Ďakujeme. Vaša správa bola odoslaná.')->withFragment('kontakt');
+    return back()->with('contact_success', __('Ďakujeme. Vaša správa bola odoslaná.'))->withFragment('kontakt');
 })->middleware('throttle:5,1')->name('contact');

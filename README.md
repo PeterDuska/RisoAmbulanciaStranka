@@ -62,6 +62,14 @@ Keep Forge's default PHP-FPM reload step. No migrations or npm commands are need
 
 If `BOOKING_URL` is empty, booking buttons lead to the contact form. Messages are only reported as sent after a configured delivery mailer accepts them. With no recipient, or the local `log` / `array` mailer, the form displays an unavailable message and preserves input.
 
-The reference only supplies preparation text for the first accordion. The other two show a short message that preparation will be confirmed on booking. The language indicator is informational because this version is Slovak only. No clinic address or telephone number was invented.
+The reference only supplies preparation text for the first accordion. The other two show a short message that preparation will be confirmed on booking. No clinic address or telephone number was invented.
+
+## Languages and placeholders
+
+The SK / EN header switch changes the language using `?lang=sk` or `?lang=en`, and remembers the choice in the session. Slovak is the default. All page text, form labels, status messages and validation messages are translated.
+
+Edit the values in `lang/sk.json` and `lang/en.json` to replace the provisional text. The original Slovak strings are stable translation keys; leave those keys unchanged. Validation messages are in `lang/sk/validation.php` and `lang/en/validation.php`.
+
+The section before the contact form uses a local SVG placeholder illustration (`public/assets/clinic-placeholder.svg`). Replace its image path and alt text in the Blade view when the clinic photograph is ready. Footer contact details and hours are explicitly marked as placeholders. Replace these translations with real information later.
 
 Poppins is distributed under the SIL Open Font License; see `public/assets/OFL.txt`. The logo was supplied by the project owner.
