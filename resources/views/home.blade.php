@@ -7,8 +7,7 @@
     <meta name="theme-color" content="#287720">
     <title>{{ __('SONOPRO – Diagnostika s dôrazom na precíznosť') }}</title>
     <link rel="icon" href="{{ asset('assets/sonopro-logo.png') }}" type="image/png">
-    <link rel="stylesheet" href="{{ asset('assets/site.css') }}">
-    <script src="{{ asset('assets/site.js') }}" defer></script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
 <a class="skip-link" href="#obsah">{{ __('Prejsť na obsah') }}</a>

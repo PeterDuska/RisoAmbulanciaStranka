@@ -1,0 +1,16 @@
+{
+  "name": "sonopro-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "devDependencies": {
+    "laravel-vite-plugin": "^3.2.0",
+    "vite": "^8.3.4"
+  }
+}

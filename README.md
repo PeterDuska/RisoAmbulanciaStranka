@@ -1,19 +1,23 @@
 # SONOPRO
 
-Slovak, almost-static website based on the supplied screenshots. A single Blade view, local fonts and logo, plain CSS, and a small JavaScript mobile menu. Laravel handles routing, CSRF, validation, throttling and contact email. No database, Node, Vite, queue worker or build step is required.
+Slovak, almost-static website based on the supplied screenshots. A single Blade view, local fonts and logo, plain CSS, and a small JavaScript mobile menu. Laravel handles routing, CSRF, validation, throttling and contact email. Vite builds the CSS and JavaScript using npm. No database or queue worker is required.
 
 ## Local development
 
-PHP 8.4+ and Composer are required (the committed dependency lock targets PHP 8.4).
+PHP 8.4+, Composer, and Node.js 22.12+ with npm are required (the committed dependency lock targets PHP 8.4).
 
 ```sh
 composer install
 cp .env.example .env
 php artisan key:generate
+npm ci
+npm run build
 php artisan serve
 ```
 
 Open http://127.0.0.1:8000. On PowerShell use `Copy-Item .env.example .env` in place of `cp`.
+
+For live frontend updates, run `npm run dev` in a separate terminal alongside `php artisan serve`. On PowerShell, use `npm.cmd` if execution policy blocks `npm.ps1`.
 
 ## Laravel Forge
 
@@ -47,16 +51,18 @@ Suggested deployment commands, after Forge updates the checkout:
 
 ```sh
 composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+npm ci --include=dev
+npm run build
 php artisan optimize
 ```
 
-Keep Forge's default PHP-FPM reload step. No migrations or npm commands are needed.
+Keep Forge's default checkout, release activation, and PHP-FPM reload steps. Use Node.js 22.12+ on the Forge server. Vite is a development dependency needed during the build, so include dev dependencies even in production. Commit both `package.json` and `package-lock.json`; `npm ci` requires the lockfile. Generated `public/build` files are ignored by Git and built on the server before release activation. No migrations are needed.
 
 ## Editing
 
 - `resources/views/home.blade.php`: content and layout.
-- `public/assets/site.css`: styling and responsive breakpoints.
-- `public/assets/site.js`: mobile menu.
+- `resources/css/app.css`: styling and responsive breakpoints.
+- `resources/js/app.js`: mobile menu.
 - `routes/web.php`: contact form endpoint.
 - `config/sonopro.php`: booking URL and contact inbox from environment.
 
