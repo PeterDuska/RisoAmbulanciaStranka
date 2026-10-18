@@ -18,3 +18,38 @@
 @media(max-width:1100px){.clinic-section{gap:5%;padding-bottom:95px}.clinic-copy h2{font-size:43px}.clinic-copy>p:not(.eyebrow){font-size:16px}.footer-grid{grid-template-columns:1fr 1fr;gap:35px 8%}.footer-brand p{max-width:320px}}
 @media(max-width:760px){.clinic-section{grid-template-columns:1fr;padding:0 6% 70px;gap:34px}.clinic-copy{max-width:none}.clinic-copy .eyebrow{font-size:12px;letter-spacing:1.1px;margin-bottom:18px}.clinic-copy h2{font-size:42px;letter-spacing:-1.3px;margin-bottom:24px}.clinic-copy>p:not(.eyebrow){font-size:16px;line-height:1.75}.clinic-visual figcaption{font-size:11px;margin-top:10px}.text-link{font-size:16px;margin-top:7px}.site-footer{padding:55px 6% 24px}.footer-grid{gap:30px 24px}.footer-brand{grid-column:1/-1}.footer-grid h2{font-size:15px;margin-bottom:16px}.footer-grid p,.footer-grid nav>a{font-size:14px}.footer-brand p{max-width:320px;margin-top:17px}.footer-placeholder-note{margin-top:30px}.footer-bottom{align-items:flex-start}.language{font-size:16px}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr}.footer-brand{grid-column:auto}.footer-grid h2{margin-top:0}.footer-grid p{margin-top:0}.footer-bottom{flex-direction:column;gap:15px}.name-fields{grid-template-columns:1fr;gap:22px}.name-fields label{font-size:17px}.hero h1{font-size:clamp(38px,10.4vw,48px)}html[lang=en] .hero h1{font-size:clamp(35px,9.4vw,44px)}}
+
+/* Quiet interaction details, without changing spacing or typography. */
+:root{--ease-soft:cubic-bezier(.22,1,.36,1)}
+.button{transition:background-color 220ms ease,transform 240ms var(--ease-soft),box-shadow 240ms ease}
+.button:active{transform:translateY(0);box-shadow:none}
+.nav-link::after{content:'';position:absolute;bottom:-2px;height:1px;background:currentColor;left:0;right:0;transform:scaleX(0);transform-origin:left;transition:transform 240ms var(--ease-soft)}
+.nav-link.active::after,.nav-link:focus-visible::after{transform:scaleX(1)}
+.text-link{transition:color 200ms ease,border-color 200ms ease}
+.text-link span,.footer-bottom>a span{transition:transform 240ms var(--ease-soft)}
+.contact-form input,.contact-form textarea{transition:border-color 200ms ease,box-shadow 200ms ease}
+.contact-form input:focus,.contact-form textarea:focus{border-bottom-color:var(--green);box-shadow:0 1px 0 var(--green)}
+summary{transition:color 200ms ease}
+.accordion-icon::after{transition:transform 260ms var(--ease-soft)}
+details[data-expanded=false] .accordion-icon::after{transform:rotate(90deg)}
+.accordion-icon::before,.accordion-icon::after{transition:transform 260ms var(--ease-soft),background-color 200ms ease}
+@media(hover:hover) and (pointer:fine){
+    .button:hover{transform:translateY(-2px);box-shadow:0 5px 14px rgb(29 96 23 / 10%)}
+    .button:active{transform:translateY(0);box-shadow:none}
+    .nav-link:hover::after{transform:scaleX(1)}
+    .text-link:hover span{transform:translate(2px,-2px)}
+    .footer-bottom>a:hover span{transform:translateY(-3px)}
+    summary:hover{color:var(--green)}
+    summary:hover .accordion-icon::before,summary:hover .accordion-icon::after{background-color:var(--green)}
+}
+@media(prefers-reduced-motion:no-preference){
+    @media(max-width:760px){
+        .site-header nav.open{animation:menu-arrival 220ms var(--ease-soft)}
+    }
+}
+@keyframes menu-arrival{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .button:hover,.text-link:hover span,.footer-bottom>a:hover span{transform:none}
+}
