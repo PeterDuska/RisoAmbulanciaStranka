@@ -40,7 +40,7 @@
         <section class="preparation" aria-labelledby="preparation-title">
             <h2 id="preparation-title">{{ __('Príprava na vyšetrenie') }}</h2>
             <div class="accordions">
-                <details open>
+                <details>
                     <summary>{{ __('Ultrazvukové vyšetrenie brucha a čriev') }}<span class="accordion-icon" aria-hidden="true"></span></summary>
                     <div class="details-body"><ul>
                         <li><strong>{{ __('Nalačno:') }}</strong> {{ __('6 hodín pred vyšetrením nejedzte, nežujte žuvačku ani nefajčite.') }}</li>
@@ -49,31 +49,16 @@
                     </ul></div>
                 </details>
                 <details>
-                    <summary>{{ __('Ultrazvukové vyšetrenie konkrétnych orgánov') }}<span class="accordion-icon" aria-hidden="true"></span></summary>
-                    <div class="details-body"><p>{{ __('Pokyny k príprave na vyšetrenie konkrétneho orgánu vám potvrdíme pri objednaní.') }}</p></div>
+                    <summary>{{ __('Ostatné vyšetrenia') }}<span class="accordion-icon" aria-hidden="true"></span></summary>
+                    <div class="details-body"><p>{{ __('Bez špeciálnej prípravy') }}</p></div>
                 </details>
-                <details>
+                <!-- <details>
                     <summary>{{ __('Dopplerovské ultrazvukové vyšetrenie ciev') }}<span class="accordion-icon" aria-hidden="true"></span></summary>
                     <div class="details-body"><p>{{ __('Pokyny k príprave na vyšetrenie ciev vám potvrdíme pri objednaní.') }}</p></div>
-                </details>
-                <details>
-                    <summary>{{ __('Ponúkané vyšetrenia') }}<span class="accordion-icon" aria-hidden="true"></span></summary>
-                    <div class="details-body"><ul>
-                        <li>USG brucha a malej panvy (príp. čriev, jednotlivých orgánov brušnej dutiny)</li>
-                        <li>USG močového systému</li>
-                        <li>USG mäkkých tkanív (napr. axily, inguiny, svaly)</li>
-                        <li>USG krku (lymfatické uzliny, slinné žľazy)</li>
-                        <li>USG štítnej žľazy</li>
-                        <li>USG skróta</li>
-                        <li>USG pleurálnej dutiny</li>
-                        <li>USG doppler krčných tepien (karotíd)</li>
-                        <li>USG doppler žíl dolných/horných končatín (pri podozrení na trombózu)</li>
-                    </ul></div>
-                        
-                </details>
+                </details> -->
             </div>
         </section>
-        <section class="clinic-section" id="ambulancia" aria-labelledby="clinic-title">
+        <!-- <section class="clinic-section" id="ambulancia" aria-labelledby="clinic-title">
             <figure class="clinic-visual">
                 <img src="{{ asset('assets/clinic-placeholder.svg') }}" width="900" height="760" loading="lazy" alt="{{ __('Ilustračný pohľad na svetlý, pokojný interiér ambulancie') }}">
                 <figcaption>{{ __('Ilustračný obrázok · fotografia ambulancie bude doplnená') }}</figcaption>
@@ -85,6 +70,20 @@
                 <p>{{ __('Doplníme informácie o priebehu návštevy, našom vybavení a o tom, čo môžete od vyšetrenia očakávať.') }}</p>
                 <a class="text-link" href="#kontakt">{{ __('Spoznajte nás') }} <span aria-hidden="true">↗</span></a>
             </div>
+        </section> -->
+        <section class="examinations" aria-labelledby="examinations-title">
+            <h2 id="examinations-title">{{ __('Ponúkané vyšetrenia') }}</h2>
+            <ul class="examinations-list">
+                <li>{{ __('USG brucha a malej panvy (príp. čriev, jednotlivých orgánov brušnej dutiny)') }}</li>
+                <li>{{ __('USG močového systému') }}</li>
+                <li>{{ __('USG mäkkých tkanív (napr. axily, inguiny, svaly)') }}</li>
+                <li>{{ __('USG krku (lymfatické uzliny, slinné žľazy)') }}</li>
+                <li>{{ __('USG štítnej žľazy') }}</li>
+                <li>{{ __('USG skróta') }}</li>
+                <li>{{ __('USG pleurálnej dutiny') }}</li>
+                <li>{{ __('Dopplerovské USG krčných tepien (karotíd)') }}</li>
+                <li>{{ __('Dopplerovské USG žíl dolných a horných končatín (pri podozrení na trombózu)') }}</li>
+            </ul>
         </section>
         <section class="contact" id="kontakt" aria-labelledby="contact-title">
             <h2 id="contact-title">{{ __('Máte otázky?') }}</h2>
@@ -108,11 +107,10 @@
     <footer class="site-footer">
         <div class="footer-grid">
             <div class="footer-brand"><a class="wordmark" href="#domov">SONOPRO</a><p>{{ __('Ultrazvuková diagnostika s dôrazom na precíznosť a príjemné prostredie.') }}</p></div>
-            <div><h2>{{ __('Kde nás nájdete') }}</h2><p>{{ __('Ulica a číslo – doplníme') }}<br>{{ __('PSČ a mesto – doplníme') }}</p><p>{{ __('Telefón – doplníme') }}<br>{{ __('E-mail – doplníme') }}</p></div>
-            <div><h2>{{ __('Ordinačné hodiny') }}</h2><p>{{ __('Pondelok – piatok') }}<br>{{ __('Časy doplníme') }}</p><p>{{ __('Vyšetrenia po objednaní.') }}</p></div>
+            <div><h2>{{ __('Kde nás nájdete') }}</h2><p>{{ __('Rolnícka 1') }}<br>{{ __('83107 Bratislava')}}<br>{{ __('Budova Medicentrum Vajnory') }}</p><p>{{ __('info@sonopro.sk') }}</p></div>
+            <div><h2>{{ __('Ordinačné hodiny') }}</h2><p>{{ __('Pondelok: 15:30 - 19:00') }}<br>{{ __('Streda: 15:30 - 19:00') }}<br>{{ __('Štvrtok: 15:30 - 19:00') }}</p></div>
             <nav aria-label="{{ __('Užitočné odkazy') }}"><h2>{{ __('Užitočné odkazy') }}</h2><a href="#ambulancia">{{ __('O nás') }}</a><a href="#preparation-title">{{ __('Príprava na vyšetrenie') }}</a><a href="#kontakt">{{ __('Kontakt') }}</a></nav>
         </div>
-        <p class="footer-placeholder-note">{{ __('Kontaktné údaje a ordinačné hodiny sú zatiaľ orientačné zástupné texty.') }}</p>
         <div class="footer-bottom"><p>© {{ date('Y') }} SONOPRO. {{ __('Všetky práva vyhradené.') }}</p><a href="#domov">{{ __('Späť hore') }} <span aria-hidden="true">↑</span></a></div>
     </footer>
 </body>
