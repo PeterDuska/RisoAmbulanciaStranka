@@ -56,6 +56,21 @@
                     <summary>{{ __('Dopplerovské ultrazvukové vyšetrenie ciev') }}<span class="accordion-icon" aria-hidden="true"></span></summary>
                     <div class="details-body"><p>{{ __('Pokyny k príprave na vyšetrenie ciev vám potvrdíme pri objednaní.') }}</p></div>
                 </details>
+                <details>
+                    <summary>{{ __('Ponúkané vyšetrenia') }}<span class="accordion-icon" aria-hidden="true"></span></summary>
+                    <div class="details-body"><ul>
+                        <li>USG brucha a malej panvy (príp. čriev, jednotlivých orgánov brušnej dutiny)</li>
+                        <li>USG močového systému</li>
+                        <li>USG mäkkých tkanív (napr. axily, inguiny, svaly)</li>
+                        <li>USG krku (lymfatické uzliny, slinné žľazy)</li>
+                        <li>USG štítnej žľazy</li>
+                        <li>USG skróta</li>
+                        <li>USG pleurálnej dutiny</li>
+                        <li>USG doppler krčných tepien (karotíd)</li>
+                        <li>USG doppler žíl dolných/horných končatín (pri podozrení na trombózu)</li>
+                    </ul></div>
+                        
+                </details>
             </div>
         </section>
         <section class="clinic-section" id="ambulancia" aria-labelledby="clinic-title">
